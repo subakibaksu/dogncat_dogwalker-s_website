@@ -1,0 +1,11 @@
+"jdbc:oracle:thin:@localhost:1521:XE"
+
+@서버 ip 주소 : 유동아이피입니다..
+@port 번호 : 7090
+@DB id : BITDN
+@DB pwd : 1004
+@접속 주소 : http://localhost:7090/A_project2_group1/index.jsp
+
+사이트 접속
+
+관리자 : admin@dogcat.com // admin1004
