@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#head{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding-top: 150px;
+}
+
+#psearch{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+

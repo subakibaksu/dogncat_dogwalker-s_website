@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhotoGallery List</title>
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!--font-family-->
@@ -19,9 +20,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
 	rel="stylesheet" />
-
-<!-- TITLE OF SITE -->
-<title>PhotoGallery List</title>
 
 <!-- favicon img -->
 <link rel="shortcut icon" type="image/icon" href="logo/favicon.png" />
@@ -65,6 +63,10 @@
 		
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+</style>
+
 </head>
 
 <body>
@@ -85,7 +87,7 @@
 			<c:set var="pager" value="${requestScope.pager}"></c:set>
 			
 			<div id="reveiwBoardListContainer">
-				<h1 id="head">Photo Gallery</h1>
+				<h1 id="head">포토 갤러리, Photo Gallery</h1>
 				
 				<!-- 검색 -->
 				<div class="container">

@@ -241,7 +241,7 @@ table{
 				<c:choose>
 					<c:when	test="${usermail==null}">
 						<td align="center">
-							<a href="Login_temp.jsp">로그인</a>해야 등록 가능</td>
+							<a href="/LoginOK.me">로그인</a>해야 등록 가능</td>
 					</c:when>
 					<c:otherwise>
 						<tr >

@@ -1,0 +1,74 @@
+
+#reveiwBoardListContainer {
+	padding-top: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1{
+font-family: 'jua';
+}
+
+#riviewBoardWrite {
+	align-content: center;
+	align-items: center;
+}
+
+#reveiwBoardListContainer > table{
+  width:100%;
+}
+
+#reviewboard {
+    width: 1000px;
+    border-collapse:collapse;
+}
+
+#reviewboard_header {
+  background:#00d8d5;
+  color:white;
+}
+
+#reviewboard_body {
+    border-collapse:collapse;
+}
+
+th,td{
+  padding: 5px;
+}
+
+#reviewboard > tbody tr:hover:not(#reviewboard_header):not(#review_write_btn) {
+	background: whitesmoke;
+	color:#00d8d5;
+}
+
+
+#rboarddiv {
+	border: 1px solid #00d8d5;
+	padding: 50px;
+}
+
+#rboard_td {
+	padding: 5px;
+	width: 10%
+}
+
+#reviewboard_write, #reviewboard_write_radio {
+	padding: 30px;
+	text-align: center;
+}
+
+#point1, #point2, #point3, #point4, #point5 {
+	height: 17px;
+}
+
+#reviewboard_body_rbcont{
+	padding: 10px 30px 5px 20px;	
+}
+
+#reviewboard_body_update{
+	vertical-align:top;
+	padding-top: 10px;
+}

@@ -9,7 +9,7 @@
 	<c:out value="<script>alert('로그인 후 글쓰기가 가능합니다');</script>"
 		escapeXml="false" />
 	<script>
-		location.href = "login.jsp"
+		location.href = "Login.me"
 	</script> //주소 확인하기
 </c:if>
 

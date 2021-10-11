@@ -12,10 +12,13 @@ body{
 		display: flex;
 		flex-direction:row;
 		justify-content: center;
+		font-family: jua;
 		
 	}
  th{
 		padding-bottom: 10px;
+		font-family: jua;
+		padding-right: 20px;
 	}
 tr{
 		margin-bottom: 30px;

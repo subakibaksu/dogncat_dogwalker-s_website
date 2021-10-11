@@ -54,6 +54,11 @@ body {
   overflow-x: hidden;
 }
 
+#reservbtn {
+	width: 306px;
+	height: 42px;
+}
+
 a,
 a:hover,
 a:active,

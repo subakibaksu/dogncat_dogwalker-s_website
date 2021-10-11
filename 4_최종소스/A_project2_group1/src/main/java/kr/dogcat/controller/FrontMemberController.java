@@ -39,6 +39,12 @@ public class FrontMemberController extends HttpServlet {
     		forward = action.execute(request, response);
     		System.out.println("MemberJoinService 실행");
     		
+    	}else if(url_Command.equals("/Signup.me")) { //로그인(메인페이지 > 로그인화면)
+    		forward = new ActionForward();
+    		forward.setRedirect(false);
+    		forward.setPath("/WEB-INF/views/member/joinform.jsp");
+    		System.out.println("signuppage");
+    		
     	}else if(url_Command.equals("/LoginIdCheck.me")) { //비동기(ID 사용 유무)
     		action = new MemberIdCheckService();
     		forward = action.execute(request, response);
@@ -49,15 +55,21 @@ public class FrontMemberController extends HttpServlet {
     		forward = action.execute(request, response);
     		System.out.println("MemberNickCheckService 실행");
     	
-    	}else if(url_Command.equals("/LoginOK.me")) { //로그인
+    	}else if(url_Command.equals("/LoginOK.me")) { //로그인확인
     		action = new MemberLoginService();
     		forward = action.execute(request, response);
     		System.out.println("MemberLoginService 실행");
     		
+    	}else if(url_Command.equals("/Login.me")) { //로그인(메인페이지 > 로그인화면)
+    		forward = new ActionForward();
+    		forward.setRedirect(false);
+    		forward.setPath("/WEB-INF/views/member/login.jsp");
+    		System.out.println("loginpage");
+    		
     	}else if(url_Command.equals("/LogoutOK.me")) { //로그아웃
     		forward = new ActionForward();
     		forward.setRedirect(false);
-    		forward.setPath("/logout.jsp");
+    		forward.setPath("/WEB-INF/views/member/logout.jsp");
     		
     	}else if(url_Command.equals("/MemberDelete.me")) { //회원 삭제
     		//UI+로직

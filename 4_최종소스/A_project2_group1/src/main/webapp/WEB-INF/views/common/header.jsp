@@ -63,12 +63,12 @@
 									
 									<c:otherwise>
 										<li>
-											<form action="login.jsp" method="post">
+											<form action="Login.me" method="post">
 												<button class="book-btn">LogIn</button>
 											</form>
 										</li>
 										<li>
-											<form action="joinform.jsp" method="post">
+											<form action="Signup.me" method="post">
 												<button class="book-btn">SignUp</button>
 											</form>
 										</li>

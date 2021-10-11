@@ -207,15 +207,16 @@
 								
 																<c:choose>									
 																	<c:when test="${loginUser.email=='admin@dogcat.com'}">
-																		<button>예약 관리만 가능합니다.</button>
+																		<button class="reservbtn" >예약 관리만 가능합니다.</button>
 																	</c:when>
 																	<c:when test="${!empty loginUser.mnic}">
-																		<input form="catsitting" type="hidden" name="email" value="${loginUser.email}"> 
-																		<button type="button" class="clickmnic" id="${loginUser.email}">주소 가져오기</button>
+																		<input form="catsitting" type="hidden" name="email" value="${loginUser.email}" /> 
+																		<button style= width:"306px;" type="button" class="clickmnic" id="${loginUser.email} >주소 가져오기</button>
 																		<div class="addressinitcatsitting" id="catsitting"></div>
 																	</c:when>
+																	
 																	<c:otherwise>
-																		<button>로그인 해 주세요.</button>
+																		<button class="reservbtn">로그인 해 주세요.</button>
 																	</c:otherwise>
 																</c:choose>
 															
@@ -308,7 +309,7 @@
 																	</c:when>
 																	<c:when test="${!empty loginUser.mnic}">
 																	    <input form="dogsitting" type="hidden" name="email" value="${loginUser.email}">
-																		<button type="button" class="clickmnic" id="${loginUser.email}">주소 가져오기</button>
+																		<button  type="button" style= "width: 306px;" class="clickmnic" id="${loginUser.email}">주소 가져오기</button>
 																		<div class="addressinitdogsitting" id="dogsitting"></div>
 																	</c:when>
 																	<c:otherwise>
@@ -347,23 +348,7 @@
 											</div><!--/.row-->
 
 											<div class="row">
-												<div class="col-lg-4 col-md-4 col-sm-12">
-													<div class="single-tab-select-box">
 
-														
-
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-												<div class="col-lg-3 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-
-														
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
-												
-												<div>
-													
-												</div><!--/.col-->
 												
 												<div class="clo-sm-5">
 													<div class="about-btn travel-mrt-0 pull-right">

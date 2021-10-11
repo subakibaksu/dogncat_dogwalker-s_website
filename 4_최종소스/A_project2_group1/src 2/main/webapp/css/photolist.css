@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+#head{
+ 		/* text-align: center;*/ 
+		padding-top: 150px; 
+		display: flex;
+		flex-direction:row;
+		justify-content: center;
+		
+	}
+
+table {
+	border-spacing: 20px;
+	border-collapse: separate;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	border: 2px solid #00d8ff;
+	border-radius: 15px;
+	padding: 0 60px 0 60px;
+}
+
+fieldset {
+	margin-top: 50px;
+	display: flex;
+	flex-direction:row;
+	justify-content: center;
+}
+
+/* .container {
+  width: 25rem;
+  height: 100%;
+  margin: 0 1rem;
+  position: relative;
+} */
+
+.searchbar {
+  font-size: 2.4rem;
+  width: 25rem;
+  height: 5rem;
+  border: 4px solid #00d8ff;
+  outline: none;
+  border-radius: 10rem;
+  box-shadow: 0 1rem 2rem rgba(black, .1);
+  padding: 2rem;
+  position: relative;
+  transition: all .2s;
+  transition-delay: .1s;
+  background-color: black;
+}
+
+.btn {
+	width: 5.5rem;
+	border: 3px solid;
+	border-radius: 2rem;
+	font-size: 15px;
+}
+
+#keyword{
+	color: white;
+}
+
+#writingbtn {
+	padding: 5px;
+	text-align: right;
+	color: white;
+	background-color: black;
+	border: 2px solid #00d8ff;
+	
+}

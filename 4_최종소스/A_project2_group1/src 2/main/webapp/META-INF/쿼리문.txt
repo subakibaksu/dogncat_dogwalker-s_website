@@ -1,0 +1,382 @@
+/* 테이블 생성 쿼리문 */
+--------------------------------------------------------------------------------
+/* 회원 */
+CREATE TABLE Member (
+        email NVARCHAR2(50) NOT NULL, /* 이메일 */
+        mnic NVARCHAR2(20) NOT NULL, /* 닉네임 */
+        mname NVARCHAR2(20) NOT NULL, /* 이름 */
+        mpwd NVARCHAR2(20) NOT NULL, /* 비밀번호 */
+        madd NVARCHAR2(50) NOT NULL, /* 주소 */
+        mphone NVARCHAR2(13) NOT NULL /* 핸드폰번호 */
+);
+COMMENT ON TABLE Member IS '회원';
+COMMENT ON COLUMN Member.email IS '이메일';
+COMMENT ON COLUMN Member.mnic IS '닉네임';
+COMMENT ON COLUMN Member.mname IS '이름';
+COMMENT ON COLUMN Member.mpwd IS '비밀번호';
+COMMENT ON COLUMN Member.madd IS '주소';
+COMMENT ON COLUMN Member.mphone IS '핸드폰번호';
+ALTER TABLE Member
+        ADD
+                CONSTRAINT PK_Member
+                PRIMARY KEY (
+                        email
+                );
+ALTER TABLE Member
+        ADD
+                CONSTRAINT UK_Member
+                UNIQUE (
+                        mphone,
+                        mnic
+                );
+/* 시터 */
+CREATE TABLE Emp (
+        enum NUMBER NOT NULL, /* 시터번호 */
+        ename NVARCHAR2(20) NOT NULL, /* 이름 */
+        ephoto NVARCHAR2(150) NOT NULL, /* 사진 */
+        eintro NVARCHAR2(50) NOT NULL, /* 소개말 */
+        acode NUMBER NOT NULL /* 지역코드 */
+);
+COMMENT ON TABLE Emp IS '시터';
+COMMENT ON COLUMN Emp.enum IS '시터번호';
+COMMENT ON COLUMN Emp.ename IS '이름';
+COMMENT ON COLUMN Emp.ephoto IS '사진';
+COMMENT ON COLUMN Emp.eintro IS '소개말';
+COMMENT ON COLUMN Emp.acode IS '지역코드';
+ALTER TABLE Emp
+        ADD
+                CONSTRAINT PK_Emp
+                PRIMARY KEY (
+                        enum
+                );
+/* 방문돌봄예약리스트 */
+CREATE TABLE Reserv_v (
+        rnum NUMBER NOT NULL, /* 예약번호 */
+        email NVARCHAR2(50) NOT NULL, /* 이메일 */
+        rdate DATE NOT NULL, /* 예약날짜 */
+        sdate DATE NOT NULL, /* 시작날짜 */
+        edate DATE NOT NULL, /* 종료날짜 */
+        useday NUMBER NOT NULL, /* 이용일수 */
+        price NUMBER NOT NULL, /* 결제금액 */
+        pet NVARCHAR2(10) NOT NULL, /* 종 */
+        rstatuscode NUMBER NOT NULL /* 예약상태코드 */
+);
+COMMENT ON TABLE Reserv_v IS '방문돌봄예약리스트';
+COMMENT ON COLUMN Reserv_v.rnum IS '예약번호';
+COMMENT ON COLUMN Reserv_v.email IS '이메일';
+COMMENT ON COLUMN Reserv_v.rdate IS '예약날짜';
+COMMENT ON COLUMN Reserv_v.sdate IS '시작날짜';
+COMMENT ON COLUMN Reserv_v.edate IS '종료날짜';
+COMMENT ON COLUMN Reserv_v.useday IS '이용일수';
+COMMENT ON COLUMN Reserv_v.price IS '결제금액';
+COMMENT ON COLUMN Reserv_v.pet IS '종';
+COMMENT ON COLUMN Reserv_v.rstatuscode IS '예약상태코드';
+ALTER TABLE Reserv_v
+        ADD
+                CONSTRAINT PK_Reserv_v
+                PRIMARY KEY (
+                        rnum,
+                        rstatuscode
+                );
+/* 리뷰게시판 */
+CREATE TABLE Rboard (
+        rbnum NUMBER NOT NULL, /* 글번호 */
+        email NVARCHAR2(50) NOT NULL, /* 이메일 */
+        rbdate DATE NOT NULL, /* 작성일 */
+        rbsubj NVARCHAR2(20) NOT NULL, /* 글제목 */
+        rbcont NVARCHAR2(1000) NOT NULL, /* 글내용 */
+        point NUMBER, /* 만족도 */
+        ref NUMBER NOT NULL, /* 그룹번호 */
+        depth NUMBER NOT NULL, /* 들여쓰기 */
+        step NUMBER NOT NULL /* 답변정렬 */
+);
+COMMENT ON TABLE Rboard IS '리뷰게시판';
+COMMENT ON COLUMN Rboard.rbnum IS '글번호';
+COMMENT ON COLUMN Rboard.email IS '이메일';
+COMMENT ON COLUMN Rboard.rbdate IS '작성일';
+COMMENT ON COLUMN Rboard.rbsubj IS '글제목';
+COMMENT ON COLUMN Rboard.rbcont IS '글내용';
+COMMENT ON COLUMN Rboard.point IS '만족도';
+COMMENT ON COLUMN Rboard.ref IS '그룹번호';
+COMMENT ON COLUMN Rboard.depth IS '들여쓰기';
+COMMENT ON COLUMN Rboard.step IS '답변정렬';
+ALTER TABLE Rboard
+        ADD
+                CONSTRAINT PK_Rboard
+                PRIMARY KEY (
+                        rbnum
+                );
+/* 포토갤러리 */
+CREATE TABLE Pboard (
+        pbnum NUMBER NOT NULL, /* 글번호 */
+        email NVARCHAR2(50) NOT NULL, /* 이메일 */
+        pbdate DATE NOT NULL, /* 작성일 */
+        pbsubj NVARCHAR2(20) NOT NULL, /* 글제목 */
+        pbcont NVARCHAR2(1000) NOT NULL, /* 글내용 */
+        pfilename NVARCHAR2(100) NOT NULL, /* 사진파일이름 */
+    pfilesize NUMBER NOT NULL, /*사진파일크기*/
+        heart NUMBER NOT NULL /* 하트 */
+);
+COMMENT ON TABLE Pboard IS '포토갤러리';
+COMMENT ON COLUMN Pboard.pbnum IS '글번호';
+COMMENT ON COLUMN Pboard.email IS '이메일';
+COMMENT ON COLUMN Pboard.pbdate IS '작성일';
+COMMENT ON COLUMN Pboard.pbsubj IS '글제목';
+COMMENT ON COLUMN Pboard.pbcont IS '글내용';
+COMMENT ON COLUMN Pboard.pfilename IS '사진파일이름';
+COMMENT ON COLUMN Pboard.pfilesize IS '사진파일크기';
+COMMENT ON COLUMN Pboard.heart IS '하트';
+ALTER TABLE Pboard
+        ADD
+                CONSTRAINT PK_Pboard
+                PRIMARY KEY (
+                        pbnum
+                );
+/* 활동지역 */
+CREATE TABLE Zipcode (
+        acode NUMBER NOT NULL, /* 지역코드 */
+        aname NVARCHAR2(10) NOT NULL /* 구이름 */
+);
+COMMENT ON TABLE Zipcode IS '활동지역';
+COMMENT ON COLUMN Zipcode.acode IS '지역코드';
+COMMENT ON COLUMN Zipcode.aname IS '구이름';
+ALTER TABLE Zipcode
+        ADD
+                CONSTRAINT PK_Zipcode
+                PRIMARY KEY (
+                        acode
+                );
+/* 댓글 */
+CREATE TABLE Memo (
+        memonum NUMBER NOT NULL, /* 댓글식별번호 */
+        pbnum NUMBER NOT NULL, /* 원글번호 */
+        email NVARCHAR2(50) NOT NULL, /* 이메일 */
+        mmdate DATE NOT NULL, /* 작성일 */
+        mmcont NVARCHAR2(200) NOT NULL /* 댓글내용 */
+);
+COMMENT ON TABLE Memo IS '댓글';
+COMMENT ON COLUMN Memo.memonum IS '댓글식별번호';
+COMMENT ON COLUMN Memo.pbnum IS '원글번호';
+COMMENT ON COLUMN Memo.email IS '이메일';
+COMMENT ON COLUMN Memo.mmdate IS '작성일';
+COMMENT ON COLUMN Memo.mmcont IS '댓글내용';
+ALTER TABLE Memo
+        ADD
+                CONSTRAINT PK_Memo
+                PRIMARY KEY (
+                        memonum
+                );
+/* 회원이용내역 */
+CREATE TABLE Mcount (
+        email NVARCHAR2(50) NOT NULL, /* 이메일 */
+        count NUMBER NOT NULL, /* 이용건수 */
+        totalp NUMBER NOT NULL /* 총 결제금액 */
+);
+COMMENT ON TABLE Mcount IS '회원이용내역';
+COMMENT ON COLUMN Mcount.email IS '이메일';
+COMMENT ON COLUMN Mcount.count IS '이용건수';
+COMMENT ON COLUMN Mcount.totalp IS '총 결제금액';
+ALTER TABLE Mcount
+        ADD
+                CONSTRAINT PK_Mcount
+                PRIMARY KEY (
+                        email
+                );
+/* 산책시간 */
+CREATE TABLE Wtime (
+        wtcode NUMBER NOT NULL, /* 산책시간코드 */
+        time NVARCHAR2(10) NOT NULL /* 시간 */
+);
+COMMENT ON TABLE Wtime IS '산책시간';
+COMMENT ON COLUMN Wtime.wtcode IS '산책시간코드';
+COMMENT ON COLUMN Wtime.time IS '시간';
+ALTER TABLE Wtime
+        ADD
+                CONSTRAINT PK_Wtime
+                PRIMARY KEY (
+                        wtcode
+                );
+/* 산책예약리스트 */
+CREATE TABLE Reserv_w (
+        rnum NUMBER NOT NULL, /* 예약번호 */
+        email NVARCHAR2(50) NOT NULL, /* 이메일 */
+        rdate DATE NOT NULL, /* 예약날짜 */
+        udate DATE NOT NULL, /* 이용날짜 */
+        price NUMBER NOT NULL, /* 결제금액 */
+        wtcode NUMBER NOT NULL, /* 산책시간코드 */
+        rstatuscode NUMBER NOT NULL /* 예약상태코드 */
+);
+COMMENT ON TABLE Reserv_w IS '산책예약리스트';
+COMMENT ON COLUMN Reserv_w.rnum IS '예약번호';
+COMMENT ON COLUMN Reserv_w.email IS '이메일';
+COMMENT ON COLUMN Reserv_w.rdate IS '예약날짜';
+COMMENT ON COLUMN Reserv_w.udate IS '이용날짜';
+COMMENT ON COLUMN Reserv_w.price IS '결제금액';
+COMMENT ON COLUMN Reserv_w.wtcode IS '산책시간코드';
+COMMENT ON COLUMN Reserv_w.rstatuscode IS '예약상태코드';
+ALTER TABLE Reserv_w
+        ADD
+                CONSTRAINT PK_Reserv_w
+                PRIMARY KEY (
+                        rnum,
+                        rstatuscode
+                );
+/* 예약상태코드 */
+CREATE TABLE rstatus (
+        rstatuscode NUMBER NOT NULL, /* 예약상태코드 */
+        rstatus NVARCHAR2(10) NOT NULL /* 상태 */
+);
+COMMENT ON TABLE rstatus IS '예약상태코드';
+COMMENT ON COLUMN rstatus.rstatuscode IS '예약상태코드';
+COMMENT ON COLUMN rstatus.rstatus IS '상태';
+ALTER TABLE rstatus
+        ADD
+                CONSTRAINT PK_rstatus
+                PRIMARY KEY (
+                        rstatuscode
+                );
+/* 서비스단가 */
+CREATE TABLE Sprice (
+        pricecode NUMBER NOT NULL, /* 단가코드 */
+        servicetype NVARCHAR2(10) NOT NULL, /* 서비스종류 */
+        sprice NUMBER NOT NULL /* 단가 */
+);
+COMMENT ON TABLE Sprice IS '서비스단가';
+COMMENT ON COLUMN Sprice.pricecode IS '단가코드';
+COMMENT ON COLUMN Sprice.servicetype IS '서비스종류';
+COMMENT ON COLUMN Sprice.sprice IS '단가';
+ALTER TABLE Emp
+        ADD
+                CONSTRAINT FK_Zipcode_TO_Emp
+                FOREIGN KEY (
+                        acode
+                )
+                REFERENCES Zipcode (
+                        acode
+                );
+ALTER TABLE Reserv_v
+        ADD
+                CONSTRAINT FK_Member_TO_Reserv_v
+                FOREIGN KEY (
+                        email
+                )
+                REFERENCES Member (
+                        email
+                );
+ALTER TABLE Reserv_v
+        ADD
+                CONSTRAINT FK_rstatus_TO_Reserv_v
+                FOREIGN KEY (
+                        rstatuscode
+                )
+                REFERENCES rstatus (
+                        rstatuscode
+                );
+ALTER TABLE Rboard
+        ADD
+                CONSTRAINT FK_Member_TO_Rboard
+                FOREIGN KEY (
+                        email
+                )
+                REFERENCES Member (
+                        email
+                );
+ALTER TABLE Pboard
+        ADD
+                CONSTRAINT FK_Member_TO_Pboard
+                FOREIGN KEY (
+                        email
+                )
+                REFERENCES Member (
+                        email
+                );
+ALTER TABLE Memo
+        ADD
+                CONSTRAINT FK_Pboard_TO_Memo
+                FOREIGN KEY (
+                        pbnum
+                )
+                REFERENCES Pboard (
+                        pbnum
+                );
+ALTER TABLE Memo
+        ADD
+                CONSTRAINT FK_Member_TO_Memo
+                FOREIGN KEY (
+                        email
+                )
+                REFERENCES Member (
+                        email
+                );
+ALTER TABLE Mcount
+        ADD
+                CONSTRAINT FK_Member_TO_Mcount
+                FOREIGN KEY (
+                        email
+                )
+                REFERENCES Member (
+                        email
+                );
+ALTER TABLE Reserv_w
+        ADD
+                CONSTRAINT FK_Member_TO_Reserv_w
+                FOREIGN KEY (
+                        email
+                )
+                REFERENCES Member (
+                        email
+                );
+ALTER TABLE Reserv_w
+        ADD
+                CONSTRAINT FK_Wtime_TO_Reserv_w
+                FOREIGN KEY (
+                        wtcode
+                )
+                REFERENCES Wtime (
+                        wtcode
+                );
+ALTER TABLE Reserv_w
+        ADD
+                CONSTRAINT FK_rstatus_TO_Reserv_w
+                FOREIGN KEY (
+                        rstatuscode
+                )
+                REFERENCES rstatus (
+                        rstatuscode
+                );
+
+
+/* 시퀀스 생성 쿼리문 */
+--------------------------------------------------------------------------------
+create sequence Rboard_rbnum start with 1 increment by 1;
+create sequence Pboard_pbnum start with 1 increment by 1;
+create sequence Reserv_num start with 1 increment by 1;
+
+
+-- 지역코드
+-- select * from Zipcode;
+insert into zipcode values(910, '동대문구');
+insert into zipcode values(920, '마포구');
+insert into zipcode values(930, '서대문구');
+insert into zipcode values(940, '성동구');
+insert into zipcode values(950, '성북구');
+insert into zipcode values(960, '용산구');
+insert into zipcode values(970, '중구');
+insert into zipcode values(980, '종로구');
+-- 서비스단가
+-- select * from Sprice;
+insert into sprice values (201, '산책', 50000);
+insert into sprice values (202, '방문돌봄', 100000);
+-- 예약상태 코드
+-- select * from rstatus;
+insert into rstatus values (1, '예약대기');
+insert into rstatus values (2, '예약승인');
+insert into rstatus values (3, '이용완료');
+insert into rstatus values (4, '예약취소');
+-- 산책시간
+-- select * from wtime;
+insert into wtime values(301, '09시-11시');
+insert into wtime values(302, '14시-16시');
+insert into wtime values(303, '16시-18시');
+insert into wtime values(304, '18시-20시');
+insert into wtime values(305, '20시-22시');

@@ -47,9 +47,7 @@
 		
 		<link rel="stylesheet" href="css/login.css" />
 		<style>
-@import
-	url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap')
-	;
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 </style>
 
 <style type="text/css">
@@ -172,9 +170,10 @@ table{
     
 
 <body>
+
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-	<div id="vrListContainer" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+	<div id="vrListContainer">
 		<h1>오늘의 날씨</h1>
 		<h2>Today 날씨 정보</h2>
 		<h3 style="color: #00d8d5"></h3>
